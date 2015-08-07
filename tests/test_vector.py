@@ -86,19 +86,16 @@ def test_cartesianvector_add():
     assert v2[1] == 4
     assert v2[2] == 2
 
-    # sum do not work with strings :(
-    # # Who said duck typing ?
-    #
-    # v1 = CartesianVector(1, "a")
-    # v2 = CartesianVector(2, "b")
-    #
-    # v3 = v1 + v2
-    #
-    # assert len(v3) == 2
-    # assert v3[0] == 3
-    # assert v3[1] == "ab"
-    #
-    # del v1, v2, v3
+    # Who said duck typing ?
+
+    v1 = CartesianVector(1, "a")
+    v2 = CartesianVector(2, "b")
+
+    v3 = v1 + v2
+
+    assert len(v3) == 2
+    assert v3[0] == 3
+    assert v3[1] == "ab"
 
 
 def test_cartesianvector_mul():

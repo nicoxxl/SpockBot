@@ -12,7 +12,7 @@ class BaseVector(object):
 
     def __repr__(self):
         return "%s(" % self.__class__.__name__ + ", ".join(
-            map(str, self.vector)) + ")"
+            map(repr, self.vector)) + ")"
 
     __str__ = __repr__
 
@@ -33,7 +33,8 @@ class CartesianVector(BaseVector):
         return self.__class__(*map(abs, self.vector))
 
     def __add__(self, other):
-        return self.__class__(*map(sum, zip(self, other)))
+        return self.__class__(*map(lambda a: a[0].__add__(a[1]),
+                                   zip(self, other)))
 
     __iadd__ = __add__
 
